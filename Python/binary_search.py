@@ -1,19 +1,19 @@
-def binary_search(lst, number):
-    low = 0
-    high = len(lst) - 1
+def binary_search(lst, target):
+    left = 0
+    right = len(lst) - 1
+    print(f" teste {right}")
     steps = 0  # Contador de tentativas
 
-    while low <= high:
+    while left <= right:
         steps += 1  # Incrementa o contador a cada iteração
-        mid = (low + high) // 2  # Pega o meio da lista
-        guess = lst[mid]
+        mid = (left + right) // 2  # Pega o meio da lista
 
-        if guess == number:
+        if lst[mid] == target:
             return mid, steps  # Retorna o índice e a quantidade de tentativas
-        if guess > number:
-            high = mid - 1
+        if lst[mid] > target:
+            right = mid - 1
         else:
-            low = mid + 1
+            left = mid + 1
 
     return None, steps  # Se não encontrar, retorna None e o número de tentativas
 
@@ -23,8 +23,8 @@ my_list_128 = list(range(1, 129))  # [1, 2, 3, ..., 128]
 my_list_256 = list(range(1, 257))  # [1, 2, 3, ..., 256]
 
 # Testando a busca para um número no meio da lista
-index_128, attempts_128 = binary_search(my_list_128, 64)
-index_256, attempts_256 = binary_search(my_list_256, 128)
+index_128, attempts_128 = binary_search(my_list_128, 82)
+index_256, attempts_256 = binary_search(my_list_256, 210)
 
 print(f"Lista com 128 elementos: Encontrado no índice {index_128} em {attempts_128} tentativas.")
 print(f"Lista com 256 elementos: Encontrado no índice {index_256} em {attempts_256} tentativas.")
