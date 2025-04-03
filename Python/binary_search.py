@@ -1,7 +1,6 @@
 def binary_search(lst, target):
     left = 0
     right = len(lst) - 1
-    print(f" teste {right}")
     steps = 0  # Contador de tentativas
 
     while left <= right:
